@@ -7,8 +7,3 @@ class MovieAdmin(admin.ModelAdmin):
     search_fields = ['name']
 admin.site.register(Movie, MovieAdmin)
 admin.site.register(Review)
-
-class ReviewAdmin(admin.ModelAdmin):
-    search_fields = ("comment", "reason")
-    list_filter = ("reported")
-    list_display = ("id", "user", "reported", "reason")
