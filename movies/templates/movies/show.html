@@ -53,7 +53,7 @@
               href="{% url 'movies.report_review' id=template_data.movie.id review_id=review.id %}">Report
             </a>
             {% endif %}
-            {% if review.reported == True %}
+            {% if review.reported == True and user != review.user %}
             <a class="btn btn-danger">Reported</a>
             {% endif %}
           </li>
