@@ -56,6 +56,12 @@
             {% if review.reported == True and user != review.user %}
             <a class="btn btn-danger">Reported</a>
             {% endif %}
+            {% if user.is_staff and user != review.user and review.reported == True %}
+            <form method="POST" action="{% url 'movies.delete_review' id=template_data.movie.id review_id=review.id %}">
+              {% csrf_token %}
+              <button type= "submit" class ="btn btn-danger">Delete</button>
+            </form>
+            {% endif %}
           </li>
           {% endfor %}
         </ul>
